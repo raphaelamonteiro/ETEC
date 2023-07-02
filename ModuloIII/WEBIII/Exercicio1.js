@@ -4,10 +4,10 @@
 	</head>
 
 	<script>
-		var nome = "Diogo";
+		var nome = "Raphaela";
 		var curso = "Desenvolvimento de Sistemas";
-		var materia = "Banco de dados";
-		var idade = 19;
+		var materia = "Design";
+		var idade = 17;
 		document.write(nome+curso+materia+idade);
 	</script>
 	</body>
