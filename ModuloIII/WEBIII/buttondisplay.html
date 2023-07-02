@@ -1,0 +1,14 @@
+<html>
+<head>
+<title>Botão</title>
+<button id="botao">Clique Aqui!</button>
+<p id="mensagem" style="display:none;">Você clicou no botao!</p>
+<script>
+let botao = document.getElementById("botao");
+let mensagem = document.getElementById("mensagem");
+
+botao.addEventListener("click", function() {
+	mensagem.style.display = "block";
+	});
+</script>
+</html>

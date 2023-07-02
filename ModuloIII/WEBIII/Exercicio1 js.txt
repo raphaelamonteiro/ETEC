@@ -1,0 +1,14 @@
+	<body>
+	<head> 
+		<meta charset = "utf-8">
+	</head>
+
+	<script>
+		var nome = "Diogo";
+		var curso = "Desenvolvimento de Sistemas";
+		var materia = "Banco de dados";
+		var idade = 19;
+		document.write(nome+curso+materia+idade);
+	</script>
+	</body>
+</html>
