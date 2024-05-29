@@ -1,0 +1,133 @@
+mysql> USE RAPHAELA_ETEC;
+Database changed
+mysql> CREATE TABLE PRODUTO(
+    -> IDPRODUTO INT PRIMARY KEY AUTO_INCREMENT,
+    -> NOME_PRODUTO VARCHAR(30) NOT NULL,
+    -> PRECO INT,
+    -> FRETE FLOAT(10,2) NOT NULL
+    -> );
+Query OK, 0 rows affected (0.41 sec)
+
+mysql> ALTER TABLE PRODUTO
+    -> CHANGE PRECO VALOR_UNITARIO INT NOT NULL;
+Query OK, 0 rows affected (0.70 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESC PRODUTO;
++----------------+-------------+------+-----+---------+----------------+
+| Field          | Type        | Null | Key | Default | Extra          |
++----------------+-------------+------+-----+---------+----------------+
+| IDPRODUTO      | int(11)     | NO   | PRI | NULL    | auto_increment |
+| NOME_PRODUTO   | varchar(30) | NO   |     | NULL    |                |
+| VALOR_UNITARIO | int(11)     | NO   |     | NULL    |                |
+| FRETE          | float(10,2) | NO   |     | NULL    |                |
++----------------+-------------+------+-----+---------+----------------+
+4 rows in set (0.05 sec)
+
+mysql> ALTER TABLE PRODUTO
+    -> CHANGE VALOR_UNITARIO VALOR_UNITARIO INT;
+Query OK, 0 rows affected (0.44 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESC PRODUTO;
++----------------+-------------+------+-----+---------+----------------+
+| Field          | Type        | Null | Key | Default | Extra          |
++----------------+-------------+------+-----+---------+----------------+
+| IDPRODUTO      | int(11)     | NO   | PRI | NULL    | auto_increment |
+| NOME_PRODUTO   | varchar(30) | NO   |     | NULL    |                |
+| VALOR_UNITARIO | int(11)     | YES  |     | NULL    |                |
+| FRETE          | float(10,2) | NO   |     | NULL    |                |
++----------------+-------------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
+
+mysql> ALTER TABLE PRODUTO
+    -> CHANGE VALOR_UNITARIO VALOR_UNITARIO INT;
+Query OK, 0 rows affected (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql>
+mysql> ALTER TABLE PRODUTO
+    -> ADD PESO FLOAT(10,2) NOT NULL;
+Query OK, 0 rows affected (0.43 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESC PRODUTO;
++----------------+-------------+------+-----+---------+----------------+
+| Field          | Type        | Null | Key | Default | Extra          |
++----------------+-------------+------+-----+---------+----------------+
+| IDPRODUTO      | int(11)     | NO   | PRI | NULL    | auto_increment |
+| NOME_PRODUTO   | varchar(30) | NO   |     | NULL    |                |
+| VALOR_UNITARIO | int(11)     | YES  |     | NULL    |                |
+| FRETE          | float(10,2) | NO   |     | NULL    |                |
+| PESO           | float(10,2) | NO   |     | NULL    |                |
++----------------+-------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+
+mysql>
+mysql> ALTER TABLE PRODUTO
+    -> DROP COLUMN PESO;
+Query OK, 0 rows affected (0.41 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESC PRODUTO;
++----------------+-------------+------+-----+---------+----------------+
+| Field          | Type        | Null | Key | Default | Extra          |
++----------------+-------------+------+-----+---------+----------------+
+| IDPRODUTO      | int(11)     | NO   | PRI | NULL    | auto_increment |
+| NOME_PRODUTO   | varchar(30) | NO   |     | NULL    |                |
+| VALOR_UNITARIO | int(11)     | YES  |     | NULL    |                |
+| FRETE          | float(10,2) | NO   |     | NULL    |                |
++----------------+-------------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
+
+mysql> ALTER TABLE PRODUTO
+    -> ADD COLUMN PESO FLOAT(10,2) NOT NULL
+    -> AFTER NOME_PRODUTO;
+Query OK, 0 rows affected (0.33 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESC PRODUTO;
++----------------+-------------+------+-----+---------+----------------+
+| Field          | Type        | Null | Key | Default | Extra          |
++----------------+-------------+------+-----+---------+----------------+
+| IDPRODUTO      | int(11)     | NO   | PRI | NULL    | auto_increment |
+| NOME_PRODUTO   | varchar(30) | NO   |     | NULL    |                |
+| PESO           | float(10,2) | NO   |     | NULL    |                |
+| VALOR_UNITARIO | int(11)     | YES  |     | NULL    |                |
+| FRETE          | float(10,2) | NO   |     | NULL    |                |
++----------------+-------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+
+mysql> ALTER TABLE PRODUTO
+    -> DROP COLUMN PESO;
+Query OK, 0 rows affected (0.41 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESC PRODUTO;
++----------------+-------------+------+-----+---------+----------------+
+| Field          | Type        | Null | Key | Default | Extra          |
++----------------+-------------+------+-----+---------+----------------+
+| IDPRODUTO      | int(11)     | NO   | PRI | NULL    | auto_increment |
+| NOME_PRODUTO   | varchar(30) | NO   |     | NULL    |                |
+| VALOR_UNITARIO | int(11)     | YES  |     | NULL    |                |
+| FRETE          | float(10,2) | NO   |     | NULL    |                |
++----------------+-------------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
+
+mysql> ALTER TABLE PRODUTO
+    -> ADD COLUMN PESO FLOAT(10,2) NOT NULL
+    -> FIRST;
+Query OK, 0 rows affected (0.38 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESC PRODUTO;
++----------------+-------------+------+-----+---------+----------------+
+| Field          | Type        | Null | Key | Default | Extra          |
++----------------+-------------+------+-----+---------+----------------+
+| PESO           | float(10,2) | NO   |     | NULL    |                |
+| IDPRODUTO      | int(11)     | NO   | PRI | NULL    | auto_increment |
+| NOME_PRODUTO   | varchar(30) | NO   |     | NULL    |                |
+| VALOR_UNITARIO | int(11)     | YES  |     | NULL    |                |
+| FRETE          | float(10,2) | NO   |     | NULL    |                |
++----------------+-------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
