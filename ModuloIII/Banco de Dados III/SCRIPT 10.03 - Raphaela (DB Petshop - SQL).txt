@@ -1,0 +1,134 @@
+mysql> CREATE DATABASE RAPHAELA_ETEC;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> USE RAPHAELA_ETEC;
+Database changed
+mysql> CREATE TABLE PETSHOP(
+    -> NOME VARCHAR (30),
+    -> DONO VARCHAR(30),
+    -> CPF VARCHAR(11),
+    -> RACA VARCHAR(30),
+    -> TELEFONE VARCHAR(30),
+    -> SEXO CHAR(1)
+    -> );
+Query OK, 0 rows affected (0.34 sec)
+
+mysql> SHOW TABLES;
++-------------------------+
+| Tables_in_raphaela_etec |
++-------------------------+
+| petshop                 |
++-------------------------+
+1 row in set (0.00 sec)
+
+mysql> DESC PETSHOP;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| NOME     | varchar(30) | YES  |     | NULL    |       |
+| DONO     | varchar(30) | YES  |     | NULL    |       |
+| CPF      | varchar(11) | YES  |     | NULL    |       |
+| RACA     | varchar(30) | YES  |     | NULL    |       |
+| TELEFONE | varchar(30) | YES  |     | NULL    |       |
+| SEXO     | char(1)     | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> INSERT INTO PETSHOP VALUES('MIKE','LAURA',29231108795,'HUSKY SIBERIANO','988638273','M');
+Query OK, 1 row affected (0.05 sec)
+
+mysql>
+mysql> INSERT INTO PETSHOP VALUES('LOLA','CLARA',78231158393,'LHASA APSO','989667309','F');
+Query OK, 1 row affected (0.06 sec)
+
+mysql>
+mysql> INSERT INTO PETSHOP VALUES('ZEUS','DAVI',77831208974,'LABRADOR','987898959','M');
+Query OK, 1 row affected (0.10 sec)
+
+mysql>
+mysql> INSERT INTO PETSHOP VALUES('FIONA','ARTHUR',97799108676,'LABRADOR','980708273','F');
+Query OK, 1 row affected (0.02 sec)
+
+mysql>
+mysql> INSERT INTO PETSHOP VALUES('MOLLY','JULIA',78231158391,'BEAGLE','988667303','F');
+Query OK, 1 row affected (0.02 sec)
+
+mysql>
+mysql> INSERT INTO PETSHOP VALUES('OLIVER','YASMIN',77831208972,'BOXER','987868270','M');
+Query OK, 1 row affected (0.03 sec)
+
+mysql>
+mysql> INSERT INTO PETSHOP VALUES('VELMA','ROBERTO',29299108663,'HUSKY SIBERIANO','988788256','F');
+Query OK, 1 row affected (0.02 sec)
+
+mysql>
+mysql> INSERT INTO PETSHOP VALUES('LOUIE','RAPHAELA',48831208974,'YORKSHIRE','988458274','M');
+Query OK, 1 row affected (0.02 sec)
+
+mysql>
+mysql> INSERT INTO PETSHOP VALUES('SUZIE','PAOLA',29244104467,'PUG','987788979','F');
+Query OK, 1 row affected (0.02 sec)
+
+mysql>
+mysql> INSERT INTO PETSHOP( NOME, DONO, CPF, RACA, TELEFONE, SEXO) VALUES ('MIKE','LAURA',10000000000,'HUSKY SIBERIANO','988638273','M');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> DESC PETSHOP;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| NOME     | varchar(30) | YES  |     | NULL    |       |
+| DONO     | varchar(30) | YES  |     | NULL    |       |
+| CPF      | varchar(11) | YES  |     | NULL    |       |
+| RACA     | varchar(30) | YES  |     | NULL    |       |
+| TELEFONE | varchar(30) | YES  |     | NULL    |       |
+| SEXO     | char(1)     | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PETSHOP;
++--------+----------+-------------+-----------------+-----------+------+
+| NOME   | DONO     | CPF         | RACA            | TELEFONE  | SEXO |
++--------+----------+-------------+-----------------+-----------+------+
+| MIKE   | LAURA    | 29231108795 | HUSKY SIBERIANO | 988638273 | M    |
+| LOLA   | CLARA    | 78231158393 | LHASA APSO      | 989667309 | F    |
+| ZEUS   | DAVI     | 77831208974 | LABRADOR        | 987898959 | M    |
+| FIONA  | ARTHUR   | 97799108676 | LABRADOR        | 980708273 | F    |
+| MOLLY  | JULIA    | 78231158391 | BEAGLE          | 988667303 | F    |
+| OLIVER | YASMIN   | 77831208972 | BOXER           | 987868270 | M    |
+| VELMA  | ROBERTO  | 29299108663 | HUSKY SIBERIANO | 988788256 | F    |
+| LOUIE  | RAPHAELA | 48831208974 | YORKSHIRE       | 988458274 | M    |
+| SUZIE  | PAOLA    | 29244104467 | PUG             | 987788979 | F    |
+| MIKE   | LAURA    | 10000000000 | HUSKY SIBERIANO | 988638273 | M    |
++--------+----------+-------------+-----------------+-----------+------+
+10 rows in set (0.00 sec)
+
+mysql> SELECT NOME, SEXO FROM PETSHOP
+    -> WHERE SEXO = 'F';
++-------+------+
+| NOME  | SEXO |
++-------+------+
+| LOLA  | F    |
+| FIONA | F    |
+| MOLLY | F    |
+| VELMA | F    |
+| SUZIE | F    |
++-------+------+
+5 rows in set (0.03 sec)
+
+mysql> SELECT NOW() AS DATA_HORA FROM PETSHOP;
++---------------------+
+| DATA_HORA           |
++---------------------+
+| 2023-03-10 20:18:09 |
+| 2023-03-10 20:18:09 |
+| 2023-03-10 20:18:09 |
+| 2023-03-10 20:18:09 |
+| 2023-03-10 20:18:09 |
+| 2023-03-10 20:18:09 |
+| 2023-03-10 20:18:09 |
+| 2023-03-10 20:18:09 |
+| 2023-03-10 20:18:09 |
+| 2023-03-10 20:18:09 |
++---------------------+
+10 rows in set (0.00 sec)

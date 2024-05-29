@@ -1,0 +1,173 @@
+mysql> CREATE DATABASE ETEC_BD;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> USE ETEC_BD;
+Database changed
+mysql> CREATE TABLE FUNCIONARIOS(
+    -> NOME VARCHAR (30),
+    -> SOBRENOME VARCHAR(30),
+    -> CPF VARCHAR(11),
+    -> TELEFONE VARCHAR(30),
+    -> SEXO CHAR(1)
+    ->  );
+Query OK, 0 rows affected (0.29 sec)
+
+mysql> SHOW TABLES;
++-------------------+
+| Tables_in_etec_bd |
++-------------------+
+| funcionarios      |
++-------------------+
+1 row in set (0.05 sec)
+
+mysql> DESC FUNCIONARIOS;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| NOME      | varchar(30) | YES  |     | NULL    |       |
+| SOBRENOME | varchar(30) | YES  |     | NULL    |       |
+| CPF       | varchar(11) | YES  |     | NULL    |       |
+| TELEFONE  | varchar(30) | YES  |     | NULL    |       |
+| SEXO      | char(1)     | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql>
+mysql> INSERT INTO FUNCIONARIOS VALUES('RACHEL','GREEN',29231108799,'988638273','F');
+Query OK, 1 row affected (0.08 sec)
+
+mysql>
+mysql> INSERT INTO FUNCIONARIOS VALUES('ROSS','GELLER',69235678792,'989778228','M');
+Query OK, 1 row affected (0.03 sec)
+
+mysql>
+mysql> INSERT INTO FUNCIONARIOS VALUES('GLORIA','TRIBBIANI',09231108499,'988448273','F');
+Query OK, 1 row affected (0.13 sec)
+
+mysql>
+mysql> INSERT INTO FUNCIONARIOS VALUES('CHANDLER','BING',49931108799,'980778078','M');
+Query OK, 1 row affected (0.02 sec)
+
+mysql>
+mysql> INSERT INTO FUNCIONARIOS VALUES('JOEY','TRIBBIANI',19131108155,'988639233','M');
+Query OK, 1 row affected (0.03 sec)
+
+mysql>
+mysql> INSERT INTO FUNCIONARIOS VALUES('PHOEBE','BUFFAY',09231108199,'988770178','F');
+Query OK, 1 row affected (0.02 sec)
+
+mysql>
+mysql> INSERT INTO FUNCIONARIOS VALUES('FRANK','BUFFAY',69230108799,'989778278','M');
+Query OK, 1 row affected (0.03 sec)
+
+mysql>
+mysql> INSERT INTO FUNCIONARIOS VALUES('RICHARD','BURKE',99231108799,'988070270','M');
+Query OK, 1 row affected (0.02 sec)
+
+mysql>
+mysql> INSERT INTO FUNCIONARIOS VALUES('JACK','GELLER',60231108799,'988078287','M');
+Query OK, 1 row affected (0.05 sec)
+
+mysql>
+mysql> INSERT INTO FUNCIONARIOS VALUES('SUSAN','BUNCH',99291108709,'978070207','F');
+Query OK, 1 row affected (0.04 sec)
+
+mysql>
+mysql> INSERT INTO FUNCIONARIOS VALUES('CAROL','WILLICK',66031108799,'988777278','F');
+Query OK, 1 row affected (0.03 sec)
+
+mysql>
+mysql> INSERT INTO FUNCIONARIOS VALUES('MIKE','HANNIGAN',99901108799,'988075271','M');
+Query OK, 1 row affected (0.02 sec)
+
+mysql>
+mysql> INSERT INTO FUNCIONARIOS VALUES('MONICA','GELLER',69231108799,'988778278','F');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> DESC FUNCIONARIOS;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| NOME      | varchar(30) | YES  |     | NULL    |       |
+| SOBRENOME | varchar(30) | YES  |     | NULL    |       |
+| CPF       | varchar(11) | YES  |     | NULL    |       |
+| TELEFONE  | varchar(30) | YES  |     | NULL    |       |
+| SEXO      | char(1)     | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM FUNCIONARIOS;
++----------+-----------+-------------+-----------+------+
+| NOME     | SOBRENOME | CPF         | TELEFONE  | SEXO |
++----------+-----------+-------------+-----------+------+
+| RACHEL   | GREEN     | 29231108799 | 988638273 | F    |
+| ROSS     | GELLER    | 69235678792 | 989778228 | M    |
+| GLORIA   | TRIBBIANI | 9231108499  | 988448273 | F    |
+| CHANDLER | BING      | 49931108799 | 980778078 | M    |
+| JOEY     | TRIBBIANI | 19131108155 | 988639233 | M    |
+| PHOEBE   | BUFFAY    | 9231108199  | 988770178 | F    |
+| FRANK    | BUFFAY    | 69230108799 | 989778278 | M    |
+| RICHARD  | BURKE     | 99231108799 | 988070270 | M    |
+| JACK     | GELLER    | 60231108799 | 988078287 | M    |
+| SUSAN    | BUNCH     | 99291108709 | 978070207 | F    |
+| CAROL    | WILLICK   | 66031108799 | 988777278 | F    |
+| MIKE     | HANNIGAN  | 99901108799 | 988075271 | M    |
+| MONICA   | GELLER    | 69231108799 | 988778278 | F    |
++----------+-----------+-------------+-----------+------+
+13 rows in set (0.00 sec)
+
+mysql>
+mysql> SELECT NOME, SOBRENOME FROM FUNCIONARIOS
+    -> WHERE SOBRENOME = 'GELLER';
++--------+-----------+
+| NOME   | SOBRENOME |
++--------+-----------+
+| ROSS   | GELLER    |
+| JACK   | GELLER    |
+| MONICA | GELLER    |
++--------+-----------+
+3 rows in set (0.03 sec)
+
+mysql> DELIMITER $
+mysql> CREATE PROCEDURE SOBRENOME()
+    -> BEGIN
+    -> SELECT GREEN AS SOBRENOME;
+    -> END
+    -> $
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> CREATE PROCEDURE SEXO_M()
+    -> BEGIN
+    -> SELECT 'M' AS MASCULINO;
+    -> END
+    -> $
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> CALL SEXO_M();
+    -> DELIMITER;
+    -> $
++-----------+
+| MASCULINO |
++-----------+
+| M         |
++-----------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> CREATE PROCEDURE NOME_EMPRESA()
+    -> BEGIN
+    -> SELECT 'FRIENDS' AS EMPRESA;
+    -> END
+    -> $
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> CALL NOME_EMPRESA()$
++---------+
+| EMPRESA |
++---------+
+| FRIENDS |
++---------+
+1 row in set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
